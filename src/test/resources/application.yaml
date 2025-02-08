@@ -1,0 +1,71 @@
+camunda:
+  bpm:
+    auto-deployment-enabled: true
+    job-execution:
+      enabled: false
+    admin-user:
+      id: demo
+      password: demo
+      first-name: demo
+      last-name: demo
+      email: demo@eorion.com
+
+logging:
+  level:
+    root: info
+    org.camunda: debug
+    com.eorion: debug
+    com.icegreen: debug
+
+eorion:
+  bo:
+    enhancement:
+      ein:
+        enabled: true
+        url: http://localhost:8080/camunda
+        fallback-mail-receiver: fallback@localhost
+        host: localhost
+        port: 3025
+        debug: true
+        mail-sender: from@localhost
+        auth: false
+        interval-ms: 1
+        mail-body-template: >
+          An error occurred in at least one of your processes!
+          
+          Please check the following processes in your Camunda Cockpit:
+          
+          
+          @INCIDENTS
+          
+          ******************** AUTOMATED MESSAGE ********************
+        incident-template: >-
+          Process Activity: @ACTIVITY
+          
+          Process Instance ID: @PROCESS_INSTANCE_ID
+          
+          Incident Message: @MESSAGE
+          
+          Incident Type: @INCIDENT_TYPE
+          
+          Time of Occurrence: @TIME
+          
+          Link to Process Instance: @URL
+        subject: Incident Report
+
+---
+spring:
+  config:
+    activate:
+      on-profile: ssl
+
+eorion:
+  bo:
+    enhancement:
+      ein:
+        trust: localhost
+        port: 3465
+        protocol: smtps
+        username: loginUser@localhost
+        password: password
+        mail-sender: loginUser@localhost
