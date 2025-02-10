@@ -14,7 +14,7 @@
     <artifactId>email-incident-notification</artifactId>
     <version>0.1.0</version>
     <name>email incident notification plugin</name>
-    <description>A spring boot starter of collaboration features for Camunda Platform 7</description>
+    <description>A spring boot starter of email incident notification features for Camunda Platform 7</description>
 
     <url/>
     <licenses>
