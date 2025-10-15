@@ -147,5 +147,5 @@ Link to Process Instance: @URL
 ```
 
 ## Version Compatibility
-The version based on Camunda Platform 7.22.0 and Spring Boot 3.3.4.
+The version based on Camunda Platform 7.24.0 and Spring Boot 3.5.5.
 Therefore, the mail library should implement Jakarta Mail 2.0 rather then Java Mail 1.x.
